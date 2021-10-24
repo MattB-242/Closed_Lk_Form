@@ -36,6 +36,8 @@ def atan(a,b,alpha,d):
     return np.arctan(t/m)
 
 #Construct invariants of two line segments from endpoints
+s,t = sp.symbols('s t')
+
 class Segquad:
 
     def __init__(self,parameter):
@@ -44,6 +46,7 @@ class Segquad:
         self.loneend = np.array(parameter[0][1]).astype(float)
         self.ltwostart = np.array(parameter[1][0]).astype(float)
         self.ltwoend = np.array(parameter[1][1]).astype(float)
+        self.startdist = self.ltwostart - self.lonestart
 
         #Parameterisation vctors
         self.lonevec = self.loneend - self.lonestart
